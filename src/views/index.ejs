@@ -1,0 +1,39 @@
+<%- include('partials/header') %>
+
+  <div class="col-sm-12 col-md-10 col-lg-9 mx-auto">
+    <div class="row">
+      <% if (listings.length > 0) { %>
+        <% listings.forEach (listing => { %>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card border-light h-100 mb-3">
+            <a href="/listing/<%= listing.slug %>" class="h-50 img-container-div">
+              <img src="/public/upload/<%= listing.imageUrl %>" class="img-container" alt="image">
+            </a>
+            <div class="card-body">
+              <h5 class="card-title"><%= listing.title %></h5>
+              <p class="card-text"><span>Price: </span><span class="text-success"><strong><%= Intl.NumberFormat("en-US", {style: "currency", currency: "USD"}).format(listing.price) %></strong></span></p>
+              <a href="/listing/<%= listing.slug %>" class="btn btn-primary">View more details</a>
+            </div>
+          </div>
+        </div>
+        <% }) %>
+      <% } else { %>
+        <div class="col-md-5 mt-3 mx-auto">
+          <div class="d-flex justify-content-center">
+            <img src="/public/img/no-listings.svg" alt="no-listings" class="no-listings">
+          </div>
+          
+          <h3 class="mt-5 text-center">There are not active listings</h3>
+          <% if (user) { %>
+            <hr>
+            <h4 class="text-center"><a href="/listing/add">Add a new listing</a></h4>
+          <% } else { %>
+            <hr>
+            <h4 class="text-center"><a href="/user/signup">Sign Up</a> or <a href="/user/signin">Sign In</a> to add a new listing.</h4>
+          <% } %>
+        </div>
+      <% } %>
+    </div>
+  </div>
+
+<%- include('partials/footer') %>

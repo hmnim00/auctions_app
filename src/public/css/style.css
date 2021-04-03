@@ -1,0 +1,30 @@
+.badge-pill {
+  height: 20px;
+  width: 90px;
+}
+
+.no-listings {
+  height: 180px;
+}
+
+.img-container {
+  height: 100%;
+  width: 100%;
+  object-fit: scale-down;
+}
+
+.img-container-div {
+  opacity: .72;
+  transition: all .3s ease-in-out;
+}
+
+.img-container-div:hover {
+  opacity: 1;
+}
+
+.listing_image {
+  display: block;
+  height: 300px;
+  width: auto;
+  margin: auto;
+}
