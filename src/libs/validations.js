@@ -27,3 +27,13 @@ exports.signIn = [
   check('email').notEmpty().withMessage('Email required').normalizeEmail().isEmail().withMessage('Must enter a valid email'),
   check('password').trim().notEmpty().withMessage('Password required')
 ];
+
+exports.newListing = [
+  check('title').notEmpty().withMessage('Title is required'),
+  check('description').notEmpty().withMessage('Description is required'),
+  check('price').notEmpty().withMessage('Price is required').matches(/^[0-9]*$/).withMessage('Characters not allowed')
+];
+
+exports.newOffer = [
+  check('bid').notEmpty().withMessage('Offer is required').matches(/^[0-9]*$/).withMessage('Characters not allowed')
+]

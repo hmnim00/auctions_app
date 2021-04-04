@@ -32,7 +32,7 @@ listingCtrl.createListing = async (req, res) => {
       const ext = path.extname(req.file.originalname).toLowerCase();
       const targetPath = path.resolve(`src/public/upload/${imgUrl}${ext}`);
 
-      const { title, description, price, category } = req.body;
+      const { title, description, price } = req.body;
       const userId = res.locals.user._id;
 
       // validate extensions
@@ -44,7 +44,6 @@ listingCtrl.createListing = async (req, res) => {
           title,
           description,
           price,
-          category,
           imageUrl: imgUrl + ext,
           currentBid: price,
           user: userId

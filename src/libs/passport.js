@@ -18,6 +18,7 @@ passport.use('local.signup', new LocalStrategy({
       email,
       password
     });
+    user.password = await user.encryptPassword(password);
     await user.save();
     return done(null, user);
   } catch (error) {

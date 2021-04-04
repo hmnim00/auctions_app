@@ -9,7 +9,6 @@ const listingSchema = new mongoose.Schema({
   currentBid: { type: Number, required: true },
   status: { type: Boolean, default: true },
   slug: { type: String, required: true, unique: true },
-  category: { type: String, required: true },
   created: { type: Date, default: () => Date.now() },
   user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
   winner: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
