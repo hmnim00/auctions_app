@@ -14,23 +14,28 @@
         <form action="/user/signup" id="signup" method="post">
           <div class="form-group">
             <label for="firstName">First name</label>
-            <input type="text" name="firstName" id="firstName" class="form-control" placeholder="Name">
+            <input type="text" name="firstName" id="firstName" class="form-control" placeholder="Name" value="<%=(typeof inputData!='undefined')? inputData.firstName:''%>">
+            <p style="color: red;"><%=(typeof errors!='undefined' && typeof errors.firstName!='undefined' )? errors.firstName.msg:''%></p>
           </div>
           <div class="form-group">
             <label for="lastName">Lastname</label>
-            <input type="text" name="lastName" id="lastName" class="form-control" placeholder="Lastname">
+            <input type="text" name="lastName" id="lastName" class="form-control" placeholder="Lastname" value="<%=(typeof inputData!='undefined')? inputData.lastName:''%>">
+            <p style="color: red;"><%=(typeof errors!='undefined' && typeof errors.lastName!='undefined' )? errors.lastName.msg:''%></p>
           </div>
           <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" name="email" id="email" class="form-control" placeholder="Email">
+            <input type="email" name="email" id="email" class="form-control" placeholder="Email" value="<%=(typeof inputData!='undefined')? inputData.email:''%>">
+            <p style="color: red;"><%=(typeof errors!='undefined' && typeof errors.email!='undefined' )? errors.email.msg:''%></p>
           </div>
           <div class="form-group">
             <label for="password">Password</label>
             <input type="password" name="password" id="password" class="form-control" placeholder="Password">
+            <p style="color: red;"><%=(typeof errors!='undefined' && typeof errors.password!='undefined' )? errors.password.msg:''%></p>
           </div>
           <div class="form-group">
             <label for="confirm">Confirm Password</label>
             <input type="password" name="confirm" id="confirm" class="form-control" placeholder="Confirm Password">
+            <p style="color: red;"><%=(typeof errors!='undefined' && typeof errors.confirm!='undefined' )? errors.confirm.msg:''%></p>
           </div>
           <div class="form-group">
             <button type="submit" class="btn btn-primary btn-bg">Sign Up</button>

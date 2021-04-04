@@ -93,7 +93,7 @@ listingCtrl.getListing = async (req, res) => {
   try {
     // TODO comments
     const listing = await Listing.findOne({ slug }).lean().populate(['user']);
-    const comments = await Comment.find({listing}).lean().populate(['user']);
+    const comments = await Comment.find({ listing }).lean().populate(['user']);
     // console.log(listing);
     res.render('listing/preview', { listing, comments });
   } catch (error) {
@@ -190,6 +190,16 @@ listingCtrl.closeListing = async (req, res) => {
     }
   }
 
+}
+
+listingCtrl.deleteListing = async (req, res) => {
+  const { id } = req.params;
+  try {
+    await Listing.findOneAndDelete(id);
+    res.redirect('/');
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 module.exports = listingCtrl;

@@ -10,5 +10,6 @@ router.get('/:slug', ListingControl.getListing);
 router.post('/create', isLoggedIn, ListingControl.createListing);
 router.post('/:id/add-offer', isLoggedIn, ListingControl.addOffer);
 router.post('/:id/close-listing', isLoggedIn, ListingControl.closeListing);
+router.delete('/:id/delete', isLoggedIn, ListingControl.deleteListing);
 
 module.exports = router;
